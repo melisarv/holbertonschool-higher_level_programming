@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+"""Class Square"""
+
+
 class Square:
+    """Initializes square with size"""
     def __init__(self, size):
-        __size = None
         self.__size = size
