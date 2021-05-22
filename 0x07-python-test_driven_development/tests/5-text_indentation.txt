@@ -1,0 +1,44 @@
+This is a doctest based regression suite for 4-print_square.txt
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+>>> text_indentation("Holberton School: is ? c. fun")
+Holberton School:
+<BLANKLINE>
+is?
+<BLANKLINE>
+c.
+<BLANKLINE>
+fun
+
+>>> text_indentation(":.?")
+:
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+<BLANKLINE>
+
+>>> text_indentation("   Holbie")
+Holbie
+
+>>> text_indentation("")
+<BLANKLINE>
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_indentation(45)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_indentation("\n\n")
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+
