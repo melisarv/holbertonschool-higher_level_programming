@@ -19,4 +19,4 @@ def text_indentation(text):
         result = (d + "\n\n").join(
                  [x.strip(" ") for x in result.split(d)])
 
-    print(result)
+    print(result, end='')

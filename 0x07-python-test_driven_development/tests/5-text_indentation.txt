@@ -19,13 +19,14 @@ fun
 <BLANKLINE>
 ?
 <BLANKLINE>
-<BLANKLINE>
 
 >>> text_indentation("   Holbie")
 Holbie
 
+>>> text_indentation("Holberton School")
+Holberton School
+
 >>> text_indentation("")
-<BLANKLINE>
 
 >>> text_indentation(None)
 Traceback (most recent call last):
@@ -38,7 +39,6 @@ Traceback (most recent call last):
 TypeError: text must be a string
 
 >>> text_indentation("\n\n")
-<BLANKLINE>
 <BLANKLINE>
 <BLANKLINE>
 
