@@ -87,18 +87,28 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''update attributes'''
         index = 0
-        for argument in args:
+        if args is not None and len(args) != 0:
+            for a in args:
                 index += 1
                 if index == 1:
-                    self.id = argument
+                    self.id = a
                 elif index == 2:
-                    self.__width = argument
+                    self.__width = a
                 elif index == 3:
-                    self.__height = argument
+                    self.__height = a
                 elif index == 4:
-                    self.__x = argument
+                    self.__x = a
                 elif index == 5:
-                    self.__y = argument
+                    self.__y = a
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''returns the dictionary representation of a Rectangle'''
+        my_dic = {'x': self.__x, 'y': self.__y, 'id': self.id,
+                  'height': self.__height, 'width': self.__width}
+        return my_dic
