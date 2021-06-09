@@ -53,3 +53,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(j_f_ls1, [])
         j_f_ls2 = Base.from_json_string(None)
         self.assertEqual(j_f_ls2, [])
+
+if __name__ == '__main__':
+    unittest.main()
