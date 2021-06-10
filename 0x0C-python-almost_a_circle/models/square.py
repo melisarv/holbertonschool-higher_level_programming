@@ -23,6 +23,7 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         '''size setter'''
+        self.integer_validator("width", value)
         self.width = value
         self.height = value
 
@@ -33,6 +34,7 @@ class Square(Rectangle):
             for a in args:
                 index += 1
                 if index == 1:
+                    self.integer_validator("id", a)
                     self.id = a
                 elif index == 2:
                     self.size = a

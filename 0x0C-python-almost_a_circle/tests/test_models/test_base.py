@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 '''Unittests for Base Class'''
-
+import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
-import unittest
-import os
 
 
 class TestBase(unittest.TestCase):
@@ -54,5 +53,31 @@ class TestBase(unittest.TestCase):
         j_f_ls2 = Base.from_json_string(None)
         self.assertEqual(j_f_ls2, [])
 
-if __name__ == '__main__':
-    unittest.main()
+    def test04(self):
+        '''test04: method create'''
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
+        s1 = Square(3, 5)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual(str(s1), str(s2))
+        self.assertFalse(s1 is s2)
+        self.assertFalse(s1 == s2)
+
+    def test05(self):
+        '''test05: method load_from_file'''
+
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+        if os.path.exists("Base.json"):
+            os.remove("Base.json")
+        list_rect = Rectangle.load_from_file()
+        self.assertEqual(list_rect, [])
+        list_square = Square.load_from_file()
+        self.assertEqual(list_square, [])
