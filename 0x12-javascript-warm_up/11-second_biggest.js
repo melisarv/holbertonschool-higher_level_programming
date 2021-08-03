@@ -1,8 +1,9 @@
 #!/usr/bin/node
-
-const argv = process.argv;
+let argv = process.argv;
 if (argv.length < 4) {
   console.log(0);
 } else {
-  console.log(argv.sort().reverse()[1]);
+  argv = argv.slice(2);
+  argv.sort();
+  console.log(argv[argv.length - 2]);
 }
